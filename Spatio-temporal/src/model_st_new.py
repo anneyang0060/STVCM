@@ -371,7 +371,7 @@ class VCM(object):
                 self.df_b['grid_id'] = df1['grid_id'].values
                 # estimate under alternative
                 self.estimate(df_=self.df_b,null=False, suffix='_b',eps=eps, hc = self.hc_b)
-                test_stats_wb[idx] = holder['test_stat_IE_b']
+                test_stats_wb[idx] = holder['test_stat_IE_b'] - holder['test_stat_IE']
 
 #             pvalue1 = (test_stats_wb > test_stat).mean()
 #             pvalue2 = min(1.0, 2.0*(test_stats_wb > abs(test_stat)).mean())
