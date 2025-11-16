@@ -160,7 +160,7 @@ class VCM(object):
         df_['eps_IE2'] = df_['resid_IE2'] - df_['eta_IE2']
         if suffix=='_0':   
             holder['fitted_IE1'] = df_['fitted_IE1']
-            holder['resid_IE1'] = df_['resid_IE1']
+            holder['eta_IE1'] = df_['eta_IE1']
             holder['eps_IE1'] = df_['eps_IE1']
             holder['fitted_IE2'] = df_['fitted_IE2']
             holder['eta_IE2'] = df_['eta_IE2']
@@ -265,7 +265,7 @@ class VCM(object):
             self.df_state_b[xcols] = df_c[xcols]
             # estimate under alternative
             self.estimate(df_main=self.df_main_b, df_state=self.df_state_b, null=False, suffix='_b', max_iter=max_iter, eps=eps, hc=self.hc)
-            test_stats_wb[idx] = holder['test_stat_IE_b']
+            test_stats_wb[idx] = holder['test_stat_IE_b']-holder['test_stat_IE']
 
         # IE
         pvalue = 1-(test_stats_wb < test_stat).mean()
